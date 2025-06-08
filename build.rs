@@ -38,7 +38,7 @@ impl fmt::Debug for Error {
             Error::OutDir(env::VarError::NotUnicode(msg)) => msg.to_string_lossy().to_string(),
             Error::InvalidUserHooksDir(path) => {
                 format!("User hooks directory is not found or no executable file is found in '{:?}'. Did you forget to make a hook script executable?", path)
-	        }
+            }
             Error::EmptyUserHook(path) => format!("User hook script is empty: {:?}", path),
         };
         write!(f, "{}", msg)
@@ -197,9 +197,9 @@ fn install_hook(hook: &str) -> Result<()> {
 }
 
 fn install_user_hook(src: &Path, dst: &Path) -> Result<()> {
-    if hook_already_exists(dst) {
-        return Ok(());
-    }
+    // if hook_already_exists(dst) {
+    //     return Ok(());
+    // }
 
     let mut lines = {
         let mut vec = vec![];
